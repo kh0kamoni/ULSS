@@ -28,8 +28,7 @@ To run the extension locally:
 
 3. **Load the Unpacked Folder:**
    - Click the **Load unpacked** button in the top-left corner.
-   - Select the extension folder:
-     `C:\Users\Khoka Moni\Downloads\ULSS`
+   - Select the root folder of this repository (the folder containing the `manifest.json` file).
 
 ---
 
@@ -48,20 +47,3 @@ Because this extension uses universal matching, Chrome allows you to control whi
 2. **Syncing Streams:**
    - If a website does not automatically activate the dashboard, toggle **Force Live Mode** on in the settings panel to override the checks and display the live delay.
    - Adjust the **Target Latency** slider or toggle **Auto-Sync Speedup** to maintain real-time sync.
-
----
-
-## How to Pack & Publish to the Chrome Web Store
-
-To upload the extension to the Chrome Web Store:
-
-1. **Create a ZIP Archive:**
-   - Compress the contents of the `ULSS` directory (excluding any local git metadata) into a ZIP archive named `universal-live-stream-sync.zip`.
-
-2. **Publish to the Developer Console:**
-   - Go to the [Chrome Web Store Developer Console](https://developer.chrome.com/webstore/publish).
-   - Log in with your developer account.
-   - Click **Add new item**.
-   - Upload the ZIP archive.
-   - Complete the store listing details (Title, Description, Screenshots, and Icons).
-   - Submit the item for review.
