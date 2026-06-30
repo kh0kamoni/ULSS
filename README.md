@@ -6,11 +6,11 @@ A lightweight browser extension that synchronizes live video streams to the abso
 
 ## Key Features
 
-- **Universal Site Support:** Works on streaming platforms (such as YouTube, Twitch, ZDF, VRT Max, and others) using Chrome's native site permission settings.
+- **Universal Site Support:** Works on HTML5-based live streaming platforms using Chrome's native site permission settings.
 - **Ultra-Low Latency Controls:** Choose your target latency (e.g. 1.5s to 3.0s) using an interactive slider.
 - **Auto-Sync Speedup:** Automatically increases the player speed to 1.12x if it falls slightly behind, catching up smoothly without audio pitch distortions (and returning to 1.0x when synced).
 - **Instant Catch-up:** A single click on the "Sync to Live Edge" button performs a hard jump straight into the latest buffered frame.
-- **Force Live Mode (Override):** Treat any video as a live stream even if the player reports a finite DVR duration or standard VOD.
+- **Force Live Mode (Override):** Treat any video as a live stream even if the player reports a finite DVR duration or standard video-on-demand (VOD).
 - **Glassmorphic Draggable UI:** A floating, responsive control card that remembers its position across page reloads and resizes, with auto-clamping to prevent it from going off-screen.
 
 ---
@@ -41,7 +41,7 @@ Because this extension uses universal matching, Chrome allows you to control whi
    - Right-click **Universal Live Stream Sync**.
    - Under **"This can read and change site data"**, choose:
      * *When you click the extension:* Injects the control panel only when you click the icon.
-     * *On [current site] (e.g. www.zdf.de):* Restricts it to run specifically on that domain.
+     * *On the current site:* Restricts the extension to run specifically on the active domain.
      * *On all sites:* Injects the control panel on all streaming pages automatically.
 
 2. **Syncing Streams:**
