@@ -1,0 +1,348 @@
+/* Universal Live Stream Sync Extension Stylesheet */
+
+.vrt-sync-panel {
+  position: fixed;
+  bottom: 95px;
+  right: 24px;
+  width: 320px;
+  background: rgba(18, 18, 24, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  color: #f3f4f6;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  z-index: 2147483647;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  user-select: none;
+}
+
+.vrt-sync-panel.collapsed {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  bottom: 95px;
+  right: 24px;
+  background: rgba(18, 18, 24, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Header styling */
+.vrt-sync-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vrt-sync-title {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffcc00;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vrt-sync-logo-dot {
+  width: 8px;
+  height: 8px;
+  background: #ffcc00;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ffcc00;
+}
+
+.vrt-sync-controls-top {
+  display: flex;
+  gap: 8px;
+}
+
+.vrt-sync-icon-btn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.vrt-sync-icon-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Content Area */
+.vrt-sync-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vrt-sync-panel.collapsed .vrt-sync-content,
+.vrt-sync-panel.collapsed .vrt-sync-header-title {
+  display: none;
+}
+
+/* Collapsed Mini-Trigger Button */
+.vrt-sync-mini-trigger {
+  display: none;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.vrt-sync-panel.collapsed .vrt-sync-mini-trigger {
+  display: flex;
+}
+
+.vrt-sync-mini-indicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+/* Stats dashboard */
+.vrt-sync-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.vrt-sync-stat-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.vrt-sync-stat-label {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vrt-sync-stat-val {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: monospace;
+  color: #ffffff;
+}
+
+.vrt-sync-stat-val.synced {
+  color: #10b981;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.vrt-sync-stat-val.lagging {
+  color: #f59e0b;
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}
+
+.vrt-sync-stat-val.delayed {
+  color: #ef4444;
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+/* Speed / Status Line */
+.vrt-sync-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.vrt-sync-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.vrt-sync-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #9ca3af;
+}
+
+.vrt-sync-status-dot.active {
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  animation: pulse-dot 1.5s infinite;
+}
+
+.vrt-sync-status-dot.matching {
+  background: #ffcc00;
+  box-shadow: 0 0 6px #ffcc00;
+  animation: pulse-dot 1s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+/* Control Settings */
+.vrt-sync-setting {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vrt-sync-setting-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #d1d5db;
+}
+
+.vrt-sync-setting-val {
+  font-weight: 600;
+  color: #ffcc00;
+}
+
+.vrt-sync-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  cursor: pointer;
+}
+
+.vrt-sync-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffcc00;
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.vrt-sync-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+/* Toggle Switch */
+.vrt-sync-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vrt-sync-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.vrt-sync-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.vrt-sync-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: .3s;
+  border-radius: 24px;
+}
+
+.vrt-sync-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+.vrt-sync-switch input:checked + .vrt-sync-toggle-slider {
+  background-color: #10b981;
+}
+
+.vrt-sync-switch input:checked + .vrt-sync-toggle-slider:before {
+  transform: translateX(20px);
+}
+
+/* Action Button */
+.vrt-sync-btn {
+  background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
+  color: #121218;
+  font-weight: 700;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.25);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.vrt-sync-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 204, 0, 0.4);
+}
+
+.vrt-sync-btn:active {
+  transform: translateY(0);
+}
+
+.vrt-sync-btn svg {
+  transition: transform 0.4s ease;
+}
+
+.vrt-sync-btn:hover svg {
+  transform: rotate(180deg);
+}
+
+/* Custom scrollbars inside panel if needed */
+.vrt-sync-panel::-webkit-scrollbar {
+  width: 6px;
+}
+.vrt-sync-panel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
